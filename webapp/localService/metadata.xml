@@ -1,0 +1,46 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:Reference
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="https://ldcisd4.wdf.sap.corp:44302/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="Z_I068015_UI5_SRV" xml:lang="en" sap:schema-version="1">
+            <EntityType Name="Invoice" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Invoiceno"/>
+                    <PropertyRef Name="Productname"/>
+                </Key>
+                <Property Name="Invoiceno" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Character field, length 32" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Productname" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Character field, length 32" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Quantity" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Two-digit no." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Extendedprice" Type="Edm.Decimal" Nullable="false" Precision="10" Scale="2" sap:unicode="false" sap:label="x" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Shippername" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Character field, length 32" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Single-Character Flag" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="ZI068015_CDS1Type" sap:label="CDS View - I068015" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="invoiceno"/>
+                    <PropertyRef Name="productname"/>
+                </Key>
+                <Property Name="invoiceno" Type="Edm.String" Nullable="false" MaxLength="32" sap:display-format="UpperCase" sap:label="" sap:quickinfo="Character field, length 32"/>
+                <Property Name="productname" Type="Edm.String" Nullable="false" MaxLength="32" sap:display-format="UpperCase" sap:label="" sap:quickinfo="Character field, length 32"/>
+                <Property Name="quantity" Type="Edm.String" MaxLength="2" sap:display-format="NonNegative" sap:label="Two-digit number" sap:quickinfo="Two digit number"/>
+                <Property Name="extendedprice" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="x" sap:quickinfo="Minimum time in microseconds"/>
+                <Property Name="shippername" Type="Edm.String" MaxLength="32" sap:display-format="UpperCase" sap:label="" sap:quickinfo="Character field, length 32"/>
+                <Property Name="status" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="" sap:quickinfo="Single-Character Flag"/>
+            </EntityType>
+            <EntityContainer Name="Z_I068015_UI5_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="InvoiceSet" EntityType="Z_I068015_UI5_SRV.Invoice" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ZI068015_CDS1" EntityType="Z_I068015_UI5_SRV.ZI068015_CDS1Type" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./$metadata"/>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./$metadata"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>
