@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<!--  Welcome -->
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
+		<title>Walkthrough</title>
+		<script
+         id="sap-ui-bootstrap"
+         src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+         data-sap-ui-theme="sap_belize"
+         data-sap-ui-libs="sap.m"
+         data-sap-ui-compatVersion="edge"
+         data-sap-ui-preload="async"
+         data-sap-ui-resourceroots='{
+            "sap.ui.demo.wt": "./"
+         }' >
+         </script>
+		<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
+
+<!--  	      <script>
+	 
+	         sap.ui.getCore().attachInit(function () {
+	            sap.ui.xmlview({
+	               viewName : "sap.ui.demo.wt.view.App"
+	            }).placeAt("content");
+	         });
+	      </script>-->
+	      <script>
+	       	var oModel = new sap.ui.model.odata.ODataModel( 
+	       			"https://ldcisd4.wdf.sap.corp:44302//sap/opu/odata/SAP/Z_I068015_UI5_SRV/",
+	       			false, 
+	       			"MJW",
+	       			"Abcd!234");   
+//	    	oModel.getMetadata(); 	      
+	        sap.ui.getCore().attachInit(function(){
+	      		new sap.m.Shell({
+	      			app : new sap.ui.core.ComponentContainer(
+	      				{name:"sap.ui.demo.wt",
+	      				 height : "100%"}
+	      				)
+	      			}).placeAt("content")
+	      		
+	      		}
+	      	);
+	      </script> 	
+<!-- 		<script>
+			var fun1 = function(){
+							var appview = new sap.ui.xmlview(
+									      { viewName : "sap.ui.demo.wt.view.App"}
+											);
+							appview.placeAt("content");
+						};
+			sap.ui.getCore().attachInit(fun1);
+		
+// 				sap.ui.getCore().attachInit(function () {
+// 					// create a mobile app and display page1 initially
+// 					var app = new sap.m.App("myApp", {
+// 						initialPage: "page1"
+// 					});
+// 					// create the first page
+// 					var page1 = new sap.m.Page("page1", {
+// 						title : "Hello World",
+// 						showNavButton : true,
+// 						content : new sap.m.Button({
+// 							text : "Go to Page 2",
+// 							press : function () {
+// 								// navigate to page2
+// 								app.to("page2");
+// 							}
+// 						})
+// 					});
+					
+// // 					page1.addContent(new sap.m.Text("textid" , { text : "This is additional content",
+// // 																 textDirection : sap.ui.core.TextDirection.LTR}));
+//  					page1.addContent(new sap.m.TextArea("textid" , { rows : 5,
+//  																 cols : 20}));
+// 					// create the second page with a back button
+// 					var page2 = new sap.m.Page("page2", {
+// 						title : "Hello Page 2",
+// 						showNavButton : true,
+// 						navButtonPress : function () {
+// 							// go back to the previous page
+// 							app.back();
+// 						}
+// 					});
+// 					// add both pages to the app
+// 					app.addPage(page1).addPage(page2);
+// 					// place the app into the HTML document
+// 					app.placeAt("content");
+// 				});			
+		</script> -->
+
+	</head>
+	<body class="sapUiBody" id="content">
+		
+	</body>
+</html>
